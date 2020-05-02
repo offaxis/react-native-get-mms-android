@@ -21,6 +21,9 @@ Get the mms count for a thread
 ### getMMS(threadId, errorCallback, successCallback)
 Get all mms for a thread
 
+### getAllMMS(errorCallback, successCallback)
+Get all mms
+
 ### getMMSWithIdPublic(mmsId, callback)
 Get mms data for a mms
 

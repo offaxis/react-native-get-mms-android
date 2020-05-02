@@ -83,6 +83,37 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void getAllMMS(Callback errorCallback, Callback successCallback) {
+        try {
+
+            String[] selection = {"*"};
+            Cursor cursor = context.getContentResolver().query(Uri.parse("content://mms"), selection, null, null, null);
+            JSONArray jsons = new JSONArray();
+
+            if(cursor != null && cursor.moveToFirst()) {
+                do {
+                    JSONObject json;
+                    json = getJsonFromCursor(cursor);
+                    JSONArray attachments = getMMSWithId(cursor.getString(cursor.getColumnIndex("_id")));
+                    json.put("attachments", attachments);
+                    jsons.put(json);
+                } while (cursor.moveToNext());
+
+                cursor.close();
+            }
+
+            try {
+                successCallback.invoke(jsons.toString());
+            } catch (Exception e) {
+                errorCallback.invoke(e.getMessage());
+            }
+        } catch (Exception e) {
+            errorCallback.invoke(e.getMessage());
+            return;
+        }
+    }
+
+    @ReactMethod
     public void getMMSWithIdPublic(String mmsId, Callback callback) {
         callback.invoke(this.getMMSWithId(mmsId));
     }
