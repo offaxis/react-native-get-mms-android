@@ -56,7 +56,7 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
         try {
 
             String selection = "thread_id=" + threadId;
-            Cursor cursor = context.getContentResolver().query(Uri.parse("content://mms/inbox"), null, selection, null, null);
+            Cursor cursor = context.getContentResolver().query(Uri.parse("content://mms"), null, selection, null, null);
             JSONArray jsons = new JSONArray();
 
             if(cursor != null && cursor.moveToFirst()) {
