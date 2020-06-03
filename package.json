@@ -1,7 +1,7 @@
 {
   "name": "react-native-get-mms-android",
   "title": "React Native Get Mms Android",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "TODO",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-get-mms-android.git",
-    "baseUrl": "https://github.com/github_account/react-native-get-mms-android"
+    "url": "git+https://github.com/offaxis/react-native-get-mms-android.git",
+    "baseUrl": "https://github.com/offaxis/react-native-get-mms-android"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "android",
+    "mms"
   ],
   "author": "OFF AXIS <clement@offaxis.io>",
   "license": "MIT",
@@ -27,8 +29,8 @@
     "react-native": "^0.61.5"
   },
   "bugs": {
-    "url": "https://github.com/github_account/react-native-get-mms-android/issues"
+    "url": "https://github.com/offaxis/react-native-get-mms-android/issues"
   },
-  "homepage": "https://github.com/github_account/react-native-get-mms-android#readme",
+  "homepage": "https://github.com/offaxis/react-native-get-mms-android#readme",
   "dependencies": {}
 }
