@@ -187,10 +187,10 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getMMSImagePublic(String mmsId, Callback callback) {
+    public void getMMSImagePublic(String mmsId, int quality, Callback callback) {
         Bitmap bitmap = this.getMMSImage(mmsId);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+        bitmap.compress(Bitmap.CompressFormat.JEPG, quality, outputStream);
 
         callback.invoke(Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT));
     }
