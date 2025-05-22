@@ -196,15 +196,16 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
         callback.invoke(Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT));
     }
 
-    private Bitmap getMMSImage(String id) {
+    private byte[] getMMSImage(String id) {
         Uri partURI = Uri.parse("content://mms/part/" + id);
         InputStream is = null;
-        Bitmap bitmap = null;
+        byte [] data = null;
         try {
             is = context.getContentResolver().openInputStream(partURI);
-            bitmap = BitmapFactory.decodeStream(is);
+            // data = BitmapFactory.decodeStream(is);
+            data = is.readAllBytes();
         } catch (IOException e) {
-
+            
         } finally {
             if(is != null) {
                 try {
@@ -212,7 +213,7 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
                 } catch (IOException e) {}
             }
         }
-        return bitmap;
+        return data;
     }
 
     private JSONObject getJsonFromCursor(Cursor cur) {
