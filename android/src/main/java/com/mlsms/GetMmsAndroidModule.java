@@ -144,7 +144,8 @@ public class GetMmsAndroidModule extends ReactContextBaseJavaModule {
                         // json.put("content", body);
                         jsons.put(json);
                     }
-                } else if(this.isImageType(type)) {
+                // } else if(this.isImageType(type)) {
+                } else {
                     // Bitmap bitmap = getMmsImage(partId);
                     // jsons.put(bitmap);
 

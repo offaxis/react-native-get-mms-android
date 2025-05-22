@@ -305,7 +305,8 @@ object MessageHelper {
                         body = cursor!!.getString(cursor!!.getColumnIndex("text"))
                     }
                     mms.text = body
-                } else if (isImageType(contentType) == true) {
+                // } else if (isImageType(contentType) == true) {
+                } else {
                     val imageUri = Uri.parse("content://mms/part/" + partId)
                     addMMSImageUri(mmsId, imageUri)
                     mms.mmsId = mmsId
